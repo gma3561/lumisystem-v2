@@ -1223,15 +1223,15 @@ const RealEstateDashboard = () => {
                     <li className="flex items-start space-x-3">
                       <div className="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</div>
                       <div>
-                        <p className="font-medium">데이터 암호화</p>
-                        <p className="text-sm text-gray-600">고객 및 거래 정보 엔드투엔드 암호화로 정보 유출 차단</p>
+                        <p className="font-medium">접근 로그 관리</p>
+                        <p className="text-sm text-gray-600">직원별 주요 데이터 접근 내역 기록 및 주간 리포트 제공</p>
                       </div>
                     </li>
                     <li className="flex items-start space-x-3">
                       <div className="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">4</div>
                       <div>
                         <p className="font-medium">이상 행동 감지</p>
-                        <p className="text-sm text-gray-600">AI 기반 비정상 접근 패턴 감지 및 실시간 차단</p>
+                        <p className="text-sm text-gray-600">비정상 접근 패턴 감지 및 알림</p>
                       </div>
                     </li>
                   </ul>
@@ -1274,11 +1274,11 @@ const RealEstateDashboard = () => {
                     </div>
                     
                     <div className="mt-4 p-3 bg-white rounded-lg border border-red-200">
-                      <p className="text-sm text-red-800 font-medium">📊 보안 인증 및 준수사항</p>
+                      <p className="text-sm text-red-800 font-medium">📊 워터마크 기능</p>
                       <p className="text-xs text-gray-700 mt-1">
-                        • KISA 개인정보보호 인증 취득<br />
-                        • 금융보안원 데이터 보안 가이드라인 준수<br />
-                        • 부동산 거래 정보 보안 관리 체계 구축 완료
+                        • 출력 및 화면 캡처 시 워터마크 자동 적용<br />
+                        • 개인 식별 정보 포함으로 유출 경로 추적 가능<br />
+                        • 워터마크 제거 방지 기술 적용
                       </p>
                     </div>
                   </div>
@@ -1467,8 +1467,7 @@ const RealEstateDashboard = () => {
               <div className="mt-6 p-4 bg-yellow-50 rounded-lg border border-yellow-200">
                 <h4 className="font-medium mb-2 text-yellow-800">👨‍💼 전담 PM 지원</h4>
                 <p className="text-sm text-yellow-700">
-                  <strong>하상현 PM이 주 2회 상주</strong>하여 프로세스 효율 세팅을 직접 진행합니다.
-                  <br />• 매주 화요일, 목요일 오전 9시-오후 6시 현장 상주
+                  <strong>하상현 PM이 매주 2회 상주</strong>하여 프로세스 효율 세팅을 직접 진행합니다.
                   <br />• 실시간 이슈 대응 및 직원 교육 병행
                   <br />• 각 단계별 완료 후 성과 측정 및 피드백 반영
                 </p>
