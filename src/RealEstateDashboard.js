@@ -774,9 +774,6 @@ const RealEstateDashboard = () => {
                       <div className="text-sm text-gray-900">{property.registrationDate}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm font-medium text-gray-900">{property.manager}</div>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                         property.status === '매매' 
                           ? 'bg-green-100 text-green-800' 
@@ -787,6 +784,9 @@ const RealEstateDashboard = () => {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-900">조회 {property.views}회</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      <div className="text-sm font-medium text-gray-900">{property.manager}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button className="flex items-center space-x-1 text-blue-600 hover:text-blue-800">
@@ -864,8 +864,18 @@ const RealEstateDashboard = () => {
               <div className="flex items-center space-x-4">
                 <span className="font-medium text-gray-700">조회 기간:</span>
                 <div className="flex space-x-2">
-                  <button className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium">일간</button>
-                  <button className="px-4 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-lg text-sm font-medium">주간</button>
+                  <button 
+                    onClick={() => {}} 
+                    className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium"
+                  >
+                    일간
+                  </button>
+                  <button 
+                    onClick={() => {}} 
+                    className="px-4 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-lg text-sm font-medium"
+                  >
+                    주간
+                  </button>
                 </div>
               </div>
             </div>
@@ -946,8 +956,7 @@ const RealEstateDashboard = () => {
               <div className="lg:col-span-2">
                 <EmployeeTable />
               </div>
-              <div className="space-y-6">
-                <PropertyTop5 />
+              <div>
                 <NotificationPanel />
               </div>
             </div>
@@ -1013,6 +1022,302 @@ const RealEstateDashboard = () => {
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-lg shadow-lg">
               <h2 className="text-3xl font-bold mb-2">🚀 부동산 업무 자동화 제안서</h2>
               <p className="text-blue-100">효율성 극대화를 위한 통합 자동화 솔루션</p>
+            </div>
+
+            {/* 채널톡 성과 추적 */}
+            <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+              <h3 className="text-xl font-semibold mb-6 flex items-center">
+                <MessageSquare className="h-6 w-6 text-blue-500 mr-2" />
+                📊 채널톡 성과 추적
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div className="border p-4 rounded-lg">
+                  <h4 className="font-semibold text-lg mb-3 text-blue-700">고객 분석 지표</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start space-x-2">
+                      <div className="h-5 w-5 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</div>
+                      <div>
+                        <p className="font-medium">방문자 분석</p>
+                        <p className="text-sm text-gray-600">유입 경로별 방문자 수, 평균 체류 시간, 재방문율</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <div className="h-5 w-5 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</div>
+                      <div>
+                        <p className="font-medium">채팅 전환율</p>
+                        <p className="text-sm text-gray-600">방문자 중 채팅 시작 비율, 채팅 완료 후 상담 전환율</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <div className="h-5 w-5 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</div>
+                      <div>
+                        <p className="font-medium">인기 매물 분석</p>
+                        <p className="text-sm text-gray-600">문의 빈도가 높은 매물 자동 추출 및 인기 요인 분석</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="border p-4 rounded-lg">
+                  <h4 className="font-semibold text-lg mb-3 text-green-700">응대 효율성 지표</h4>
+                  <ul className="space-y-2">
+                    <li className="flex items-start space-x-2">
+                      <div className="h-5 w-5 rounded-full bg-green-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</div>
+                      <div>
+                        <p className="font-medium">첫 응답 시간</p>
+                        <p className="text-sm text-gray-600">고객 문의 후 첫 응답까지 평균 소요 시간 (목표: 30초 이내)</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <div className="h-5 w-5 rounded-full bg-green-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</div>
+                      <div>
+                        <p className="font-medium">상담 완료율</p>
+                        <p className="text-sm text-gray-600">시작된 상담 중 성공적으로 완료된 비율 (목표: 85% 이상)</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start space-x-2">
+                      <div className="h-5 w-5 rounded-full bg-green-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</div>
+                      <div>
+                        <p className="font-medium">상담원별 만족도</p>
+                        <p className="text-sm text-gray-600">채팅 종료 후 고객 평가 기반 상담원 만족도 점수</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-lg mb-3 text-blue-700">자동화 솔루션</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="border border-blue-200 p-3 rounded-lg bg-white">
+                    <div className="font-medium text-blue-700 mb-2">첫 응답 자동화</div>
+                    <p className="text-sm text-gray-600">첫 문의 5초 내 자동 응답, 직원 연결 및 상담 예약 옵션 제공</p>
+                  </div>
+                  <div className="border border-blue-200 p-3 rounded-lg bg-white">
+                    <div className="font-medium text-blue-700 mb-2">매물 정보 자동 제공</div>
+                    <p className="text-sm text-gray-600">키워드 인식 기반 관련 매물 정보 및 사진 자동 전송</p>
+                  </div>
+                  <div className="border border-blue-200 p-3 rounded-lg bg-white">
+                    <div className="font-medium text-blue-700 mb-2">상담 연속성 확보</div>
+                    <p className="text-sm text-gray-600">고객 이력 및 상담 내용 자동 기록으로 상담원 변경 시에도 연속성 유지</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* 실시간 알림 채널 구성 */}
+            <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+              <h3 className="text-xl font-semibold mb-6 flex items-center">
+                <Bell className="h-6 w-6 text-orange-500 mr-2" />
+                🔔 실시간 알림 채널 구성
+              </h3>
+              
+              <div className="mb-6">
+                <h4 className="font-semibold text-lg mb-3 text-orange-700">알림 우선순위 시스템</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="border-l-4 border-red-500 p-3 bg-red-50 rounded-r-lg">
+                    <div className="font-medium text-red-700">🔴 긴급 (즉시 대응)</div>
+                    <ul className="text-sm text-gray-700 mt-2 space-y-1">
+                      <li>• VIP 고객 문의 접수</li>
+                      <li>• 계약 관련 급박한 이슈</li>
+                      <li>• 이탈 위험 고객 감지</li>
+                    </ul>
+                  </div>
+                  <div className="border-l-4 border-yellow-500 p-3 bg-yellow-50 rounded-r-lg">
+                    <div className="font-medium text-yellow-700">🟡 중요 (1시간 내 대응)</div>
+                    <ul className="text-sm text-gray-700 mt-2 space-y-1">
+                      <li>• 일반 고객 첫 문의</li>
+                      <li>• 예약된 상담 알림</li>
+                      <li>• 직원 성과 목표 미달</li>
+                    </ul>
+                  </div>
+                  <div className="border-l-4 border-blue-500 p-3 bg-blue-50 rounded-r-lg">
+                    <div className="font-medium text-blue-700">🔵 일반 (당일 대응)</div>
+                    <ul className="text-sm text-gray-700 mt-2 space-y-1">
+                      <li>• 신규 매물 등록</li>
+                      <li>• 관심 매물 가격 변동</li>
+                      <li>• 일일 업무 요약 리포트</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="font-semibold text-lg mb-3 text-gray-700">알림 전달 채널</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium">1</div>
+                      <div>
+                        <p className="font-medium">슬랙 메시지</p>
+                        <p className="text-sm text-gray-600">관리자 및 담당 직원에게 슬랙 DM 또는 채널 알림 전송</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium">2</div>
+                      <div>
+                        <p className="font-medium">모바일 푸시</p>
+                        <p className="text-sm text-gray-600">긴급 알림의 경우 모바일 푸시 알림으로 즉시 전달</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
+                      <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-medium">3</div>
+                      <div>
+                        <p className="font-medium">이메일 다이제스트</p>
+                        <p className="text-sm text-gray-600">일반 알림은 일일 또는 주간 다이제스트 형태로 이메일 발송</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div>
+                  <h4 className="font-semibold text-lg mb-3 text-gray-700">알림 자동화 효과</h4>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                      <span className="font-medium">고객 응대 속도</span>
+                      <span className="font-bold text-green-600">74% 향상</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                      <span className="font-medium">이탈 고객 감소</span>
+                      <span className="font-bold text-green-600">31% 감소</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                      <span className="font-medium">VIP 고객 만족도</span>
+                      <span className="font-bold text-green-600">92% 달성</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
+                      <span className="font-medium">업무 누락 방지</span>
+                      <span className="font-bold text-green-600">99% 방지</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* 직원 데이터 보호 보안 시스템 */}
+            <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+              <h3 className="text-xl font-semibold mb-6 flex items-center">
+                <AlertTriangle className="h-6 w-6 text-red-500 mr-2" />
+                🔒 직원 데이터 보호 보안 시스템
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h4 className="font-semibold text-lg mb-3 text-red-700 border-b pb-2">핵심 보안 기능</h4>
+                  <ul className="space-y-3">
+                    <li className="flex items-start space-x-3">
+                      <div className="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">1</div>
+                      <div>
+                        <p className="font-medium">고급 접근 제어</p>
+                        <p className="text-sm text-gray-600">직급 및 업무별 차등화된 권한 설정으로 민감 정보 보호</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">2</div>
+                      <div>
+                        <p className="font-medium">활동 로그 추적</p>
+                        <p className="text-sm text-gray-600">모든 데이터 접근 및 변경 이력 자동 기록 및 관리자 알림</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">3</div>
+                      <div>
+                        <p className="font-medium">데이터 암호화</p>
+                        <p className="text-sm text-gray-600">고객 및 거래 정보 엔드투엔드 암호화로 정보 유출 차단</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start space-x-3">
+                      <div className="h-6 w-6 rounded-full bg-red-500 text-white flex items-center justify-center text-xs flex-shrink-0 mt-0.5">4</div>
+                      <div>
+                        <p className="font-medium">이상 행동 감지</p>
+                        <p className="text-sm text-gray-600">AI 기반 비정상 접근 패턴 감지 및 실시간 차단</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="border p-4 rounded-lg bg-red-50">
+                  <h4 className="font-semibold text-lg mb-3 text-red-700">데이터 유출 방지 시스템</h4>
+                  <div className="space-y-4">
+                    <div>
+                      <div className="font-medium mb-1">대량 다운로드 제한</div>
+                      <div className="bg-gray-200 h-2 rounded-full">
+                        <div className="bg-red-500 h-2 rounded-full" style={{width: '95%'}}></div>
+                      </div>
+                      <div className="flex justify-between text-xs mt-1">
+                        <span>보호 수준</span>
+                        <span className="font-medium">95%</span>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <div className="font-medium mb-1">외부 전송 필터링</div>
+                      <div className="bg-gray-200 h-2 rounded-full">
+                        <div className="bg-red-500 h-2 rounded-full" style={{width: '98%'}}></div>
+                      </div>
+                      <div className="flex justify-between text-xs mt-1">
+                        <span>보호 수준</span>
+                        <span className="font-medium">98%</span>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <div className="font-medium mb-1">민감정보 마스킹</div>
+                      <div className="bg-gray-200 h-2 rounded-full">
+                        <div className="bg-red-500 h-2 rounded-full" style={{width: '100%'}}></div>
+                      </div>
+                      <div className="flex justify-between text-xs mt-1">
+                        <span>보호 수준</span>
+                        <span className="font-medium">100%</span>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-4 p-3 bg-white rounded-lg border border-red-200">
+                      <p className="text-sm text-red-800 font-medium">📊 보안 인증 및 준수사항</p>
+                      <p className="text-xs text-gray-700 mt-1">
+                        • KISA 개인정보보호 인증 취득<br />
+                        • 금융보안원 데이터 보안 가이드라인 준수<br />
+                        • 부동산 거래 정보 보안 관리 체계 구축 완료
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-gray-50 p-4 rounded-lg border">
+                <h4 className="font-semibold text-lg mb-3 text-gray-700">보안 교육 및 관리</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="flex items-start space-x-3">
+                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium flex-shrink-0">1</div>
+                    <div>
+                      <p className="font-medium">직원 보안 교육 프로그램</p>
+                      <p className="text-sm text-gray-600">분기별 1회 의무 교육 및 월간 보안 뉴스레터 발송</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium flex-shrink-0">2</div>
+                    <div>
+                      <p className="font-medium">정기 보안 점검</p>
+                      <p className="text-sm text-gray-600">월간 취약점 검사 및 분기별 모의해킹을 통한 보안 강화</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium flex-shrink-0">3</div>
+                    <div>
+                      <p className="font-medium">인증 정책 강화</p>
+                      <p className="text-sm text-gray-600">2단계 인증 및 생체인식 도입으로 무단 접근 차단</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium flex-shrink-0">4</div>
+                    <div>
+                      <p className="font-medium">데이터 백업 정책</p>
+                      <p className="text-sm text-gray-600">자동 백업 및 데이터 복구 훈련으로 사고 대응력 향상</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* 효율 개선 방안 */}
