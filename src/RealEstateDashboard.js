@@ -8,7 +8,7 @@ const RealEstateDashboard = () => {
   const [timeFilter, setTimeFilter] = useState('daily');
 
   useEffect(() => {
-    const timer = setInterval(() => setCurrentTime(new Date()), 1000);
+    const timer = setInterval(() => setCurrentTime(new Date()), 60000); // 1분마다 업데이트로 변경
     return () => clearInterval(timer);
   }, []);
 
@@ -427,8 +427,16 @@ const RealEstateDashboard = () => {
   );
 
   const EmployeePerformance = () => {
-    const [selectedEmployee, setSelectedEmployee] = useState(employeeDetailedPerformance[0]);
+    // useRef를 사용하여 렌더링 사이에 상태 유지
+    const selectedEmployeeRef = React.useRef(employeeDetailedPerformance[0]);
+    const [selectedEmployee, setSelectedEmployee] = useState(selectedEmployeeRef.current);
     const [employeeTimeFilter, setEmployeeTimeFilter] = useState('daily');
+    
+    // 직원 선택 처리 함수
+    const handleEmployeeChange = (employee) => {
+      selectedEmployeeRef.current = employee;
+      setSelectedEmployee(employee);
+    };
 
     return (
       <div className="space-y-6">
@@ -466,7 +474,7 @@ const RealEstateDashboard = () => {
             {employeeDetailedPerformance.map((employee) => (
               <button
                 key={employee.id}
-                onClick={() => setSelectedEmployee(employee)}
+                onClick={() => handleEmployeeChange(employee)}
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
                   selectedEmployee.id === employee.id
                     ? 'bg-blue-100 text-blue-700 border-2 border-blue-300'
@@ -831,6 +839,10 @@ const RealEstateDashboard = () => {
     </div>
   );
 
+  // 렌더링 최적화: memoization 사용
+  const memoizedChannelInquiries = React.useMemo(() => channelInquiries, []);
+  const memoizedPriceDistribution = React.useMemo(() => priceDistribution, []);
+
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
@@ -915,7 +927,7 @@ const RealEstateDashboard = () => {
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-semibold mb-4">📊 채널별 문의량</h3>
                 <ResponsiveContainer width="100%" height={300}>
-                  <BarChart data={channelInquiries}>
+                  <BarChart data={memoizedChannelInquiries}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="channel" />
                     <YAxis />
@@ -934,7 +946,7 @@ const RealEstateDashboard = () => {
                 <ResponsiveContainer width="100%" height={300}>
                   <PieChart>
                     <Pie
-                      data={priceDistribution}
+                      data={memoizedPriceDistribution}
                       cx="50%"
                       cy="50%"
                       labelLine={false}
@@ -1450,7 +1462,7 @@ const RealEstateDashboard = () => {
                 </div>
                 
                 <div className="flex items-center space-x-3 p-4 bg-orange-50 rounded-lg border border-orange-200">
-                  <div className="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                  <div className="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">5</div>
                   <div className="flex-1">
                     <div className="font-medium">5주차: 매물 크롤링 + 뉴스 수집</div>
                     <div className="text-sm text-gray-600">네이버 부동산 자동 수집 + 시장 동향 뉴스 자동화</div>
