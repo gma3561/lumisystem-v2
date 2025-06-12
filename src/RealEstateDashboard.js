@@ -5,6 +5,7 @@ import { Bell, Users, Home, MessageSquare, TrendingUp, AlertTriangle, CheckCircl
 const RealEstateDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [timeFilter, setTimeFilter] = useState('daily');
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
@@ -47,6 +48,7 @@ const RealEstateDashboard = () => {
     { channel: '네이버톡톡', count: 38, color: '#10B981' },
     { channel: '카카오톡', count: 25, color: '#F59E0B' },
     { channel: '전화문의', count: 12, color: '#8B5CF6' },
+    { channel: '인스타그램', count: 18, color: '#E1306C' },
     { channel: '직접방문', count: 8, color: '#EF4444' }
   ];
 
@@ -426,11 +428,7 @@ const RealEstateDashboard = () => {
 
   const EmployeePerformance = () => {
     const [selectedEmployee, setSelectedEmployee] = useState(employeeDetailedPerformance[0]);
-    const [timeFilter, setTimeFilter] = useState('daily');
-
-    const handleEmployeeSelect = (employee) => {
-      setSelectedEmployee(employee);
-    };
+    const [employeeTimeFilter, setEmployeeTimeFilter] = useState('daily');
 
     return (
       <div className="space-y-6">
@@ -440,9 +438,9 @@ const RealEstateDashboard = () => {
             <span className="font-medium text-gray-700">조회 기간:</span>
             <div className="flex space-x-2">
               <button
-                onClick={() => setTimeFilter('daily')}
+                onClick={() => setEmployeeTimeFilter('daily')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  timeFilter === 'daily'
+                  employeeTimeFilter === 'daily'
                     ? 'bg-blue-500 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
@@ -450,9 +448,9 @@ const RealEstateDashboard = () => {
                 일간
               </button>
               <button
-                onClick={() => setTimeFilter('weekly')}
+                onClick={() => setEmployeeTimeFilter('weekly')}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  timeFilter === 'weekly'
+                  employeeTimeFilter === 'weekly'
                     ? 'bg-blue-500 text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
@@ -468,7 +466,7 @@ const RealEstateDashboard = () => {
             {employeeDetailedPerformance.map((employee) => (
               <button
                 key={employee.id}
-                onClick={() => handleEmployeeSelect(employee)}
+                onClick={() => setSelectedEmployee(employee)}
                 className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors ${
                   selectedEmployee.id === employee.id
                     ? 'bg-blue-100 text-blue-700 border-2 border-blue-300'
@@ -865,14 +863,14 @@ const RealEstateDashboard = () => {
                 <span className="font-medium text-gray-700">조회 기간:</span>
                 <div className="flex space-x-2">
                   <button 
-                    onClick={() => {}} 
-                    className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm font-medium"
+                    onClick={() => setTimeFilter('daily')} 
+                    className={`px-4 py-2 rounded-lg text-sm font-medium ${timeFilter === 'daily' ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                   >
                     일간
                   </button>
                   <button 
-                    onClick={() => {}} 
-                    className="px-4 py-2 bg-gray-100 text-gray-700 hover:bg-gray-200 rounded-lg text-sm font-medium"
+                    onClick={() => setTimeFilter('weekly')} 
+                    className={`px-4 py-2 rounded-lg text-sm font-medium ${timeFilter === 'weekly' ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                   >
                     주간
                   </button>
@@ -922,7 +920,11 @@ const RealEstateDashboard = () => {
                     <XAxis dataKey="channel" />
                     <YAxis />
                     <Tooltip />
-                    <Bar dataKey="count" fill="#3B82F6" />
+                    <Bar dataKey="count">
+                      {channelInquiries.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </div>
