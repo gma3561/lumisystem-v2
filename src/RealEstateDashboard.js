@@ -980,7 +980,7 @@ const RealEstateDashboard = () => {
         {activeTab === 'funnel' && (
           <div className="space-y-6">
             <FunnelChart />
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-white p-6 rounded-lg shadow-md mb-6">
               <h3 className="text-lg font-semibold mb-4">📊 월간 퍼널 분석</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -1014,6 +1014,111 @@ const RealEstateDashboard = () => {
                     <div className="flex justify-between">
                       <span>이번 달 계약:</span>
                       <span className="font-medium">54건</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* 퍼널별 전환율 목표 및 주간 회의 아젠다 */}
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-semibold mb-4">📃 퍼널별 전환율 목표 및 주간 회의 아젠다</h3>
+              
+              <div className="mb-6">
+                <h4 className="font-medium mb-3">퍼널별 전환율 목표 (2024년 7월)</h4>
+                <div className="overflow-x-auto">
+                  <table className="min-w-full bg-white border">
+                    <thead>
+                      <tr className="bg-gray-50">
+                        <th className="px-4 py-2 border text-left">퍼널 단계</th>
+                        <th className="px-4 py-2 border text-center">현재 전환율</th>
+                        <th className="px-4 py-2 border text-center">목표 전환율</th>
+                        <th className="px-4 py-2 border text-center">상태</th>
+                        <th className="px-4 py-2 border text-left">개선방안</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="px-4 py-2 border font-medium">문의접수 → 1차상담</td>
+                        <td className="px-4 py-2 border text-center">80%</td>
+                        <td className="px-4 py-2 border text-center">85%</td>
+                        <td className="px-4 py-2 border text-center text-red-500 font-medium">단계 -5%</td>
+                        <td className="px-4 py-2 border">첫 응답 시간 30초 이내 달성</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-2 border font-medium">1차상담 → 매물추천</td>
+                        <td className="px-4 py-2 border text-center">75%</td>
+                        <td className="px-4 py-2 border text-center">70%</td>
+                        <td className="px-4 py-2 border text-center text-green-500 font-medium">달성 +5%</td>
+                        <td className="px-4 py-2 border">현상태 유지</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-2 border font-medium">매물추천 → 임장신청</td>
+                        <td className="px-4 py-2 border text-center">42%</td>
+                        <td className="px-4 py-2 border text-center">40%</td>
+                        <td className="px-4 py-2 border text-center text-green-500 font-medium">달성 +2%</td>
+                        <td className="px-4 py-2 border">현상태 유지</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-2 border font-medium">임장신청 → 계약체결</td>
+                        <td className="px-4 py-2 border text-center">48%</td>
+                        <td className="px-4 py-2 border text-center">50%</td>
+                        <td className="px-4 py-2 border text-center text-yellow-500 font-medium">단계 -2%</td>
+                        <td className="px-4 py-2 border">협상력 강화 교육 진행</td>
+                      </tr>
+                      <tr>
+                        <td className="px-4 py-2 border font-medium">계약체결 → 최종성약</td>
+                        <td className="px-4 py-2 border text-center">90%</td>
+                        <td className="px-4 py-2 border text-center">95%</td>
+                        <td className="px-4 py-2 border text-center text-red-500 font-medium">단계 -5%</td>
+                        <td className="px-4 py-2 border">계약 마무리 프로세스 강화</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+              <div>
+                <h4 className="font-medium mb-3">주간 회의 아젠다 (매주 월요일 9시)</h4>
+                <div className="space-y-4">
+                  <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <div className="font-medium text-blue-800 mb-2">회의 주제 1: 1차 상담 전환율 향상 방안</div>
+                    <div className="text-sm">
+                      <p className="mb-2">현황: 현재 80% (목표대비 -5%)</p>
+                      <p className="font-medium">개선 방안:</p>
+                      <ol className="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                        <li>첫 문의접수 후 응답 속도 분석 (현재 평균 2.3분)</li>
+                        <li>상담 실패 사례 분석 및 원인 도출</li>
+                        <li>사용자 지정 담당자 시스템의 개선점 논의</li>
+                        <li>상담 응답 템플릿 개선안 검토</li>
+                      </ol>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                    <div className="font-medium text-orange-800 mb-2">회의 주제 2: 성약률 향상을 위한 마무리 프로세스 강화</div>
+                    <div className="text-sm">
+                      <p className="mb-2">현황: 현재 90% (목표대비 -5%)</p>
+                      <p className="font-medium">개선 방안:</p>
+                      <ol className="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                        <li>서류 제출 및 계약진행 관리 프로세스 리뷰</li>
+                        <li>계약 잠재 카드 시스템 도입 필요성 검토</li>
+                        <li>최종 성약까지 유실된 건에 대한 원인 분석</li>
+                        <li>성약 후 고객 만족도 조사 및 개선점 도출</li>
+                      </ol>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                    <div className="font-medium text-green-800 mb-2">회의 주제 3: 성과 측정 및 보상 체계 업데이트</div>
+                    <div className="text-sm">
+                      <p className="font-medium">논의 사항:</p>
+                      <ol className="list-decimal list-inside ml-4 space-y-1 text-gray-700">
+                        <li>퍼널별 전환율 개선에 따른 인센티브 제도 개편</li>
+                        <li>팀 협업을 통한 성과 대상 보상 시스템 검토</li>
+                        <li>생산성 향상을 위한 리소스 배분 감사</li>
+                        <li>유입채널별 향후 집중 전략 논의</li>
+                      </ol>
                     </div>
                   </div>
                 </div>
@@ -1462,7 +1567,7 @@ const RealEstateDashboard = () => {
                 </div>
                 
                 <div className="flex items-center space-x-3 p-4 bg-orange-50 rounded-lg border border-orange-200">
-                  <div className="w-10 h-10 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">5</div>
+                  <div className="w-10 h-10 bg-pink-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
                   <div className="flex-1">
                     <div className="font-medium">5주차: 매물 크롤링 + 뉴스 수집</div>
                     <div className="text-sm text-gray-600">네이버 부동산 자동 수집 + 시장 동향 뉴스 자동화</div>
