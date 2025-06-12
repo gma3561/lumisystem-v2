@@ -1404,39 +1404,6 @@ const RealEstateDashboard = () => {
                 </div>
               </div>
               
-              <div className="bg-gray-50 p-4 rounded-lg border">
-                <h4 className="font-semibold text-lg mb-3 text-gray-700">보안 교육 및 관리</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium flex-shrink-0">1</div>
-                    <div>
-                      <p className="font-medium">직원 보안 교육 프로그램</p>
-                      <p className="text-sm text-gray-600">분기별 1회 의무 교육 및 월간 보안 뉴스레터 발송</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium flex-shrink-0">2</div>
-                    <div>
-                      <p className="font-medium">정기 보안 점검</p>
-                      <p className="text-sm text-gray-600">월간 취약점 검사 및 분기별 모의해킹을 통한 보안 강화</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium flex-shrink-0">3</div>
-                    <div>
-                      <p className="font-medium">인증 정책 강화</p>
-                      <p className="text-sm text-gray-600">2단계 인증 및 생체인식 도입으로 무단 접근 차단</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center text-gray-600 font-medium flex-shrink-0">4</div>
-                    <div>
-                      <p className="font-medium">데이터 백업 정책</p>
-                      <p className="text-sm text-gray-600">자동 백업 및 데이터 복구 훈련으로 사고 대응력 향상</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             {/* 효율 개선 방안 */}
