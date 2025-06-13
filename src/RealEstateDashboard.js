@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
 import { Bell, Users, Home, MessageSquare, TrendingUp, AlertTriangle, CheckCircle, Clock, Target, DollarSign, Search, Download, Eye, Edit, Filter } from 'lucide-react';
 
-const RealEstateDashboard = () => {
+const RealEstateDashboard = ({ onLogout }) => {
   const [activeTab, setActiveTab] = useState('overview');
   const [currentTime, setCurrentTime] = useState(new Date());
   const [timeFilter, setTimeFilter] = useState('daily');
@@ -850,14 +850,20 @@ const RealEstateDashboard = () => {
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <h1 className="text-2xl font-bold text-gray-900">🏢 더부동산 통합 관리 기획 및 자동화 제안서</h1>
+              <h1 className="text-2xl font-bold text-gray-900">🏢 LumiSystem - 부동산 통합 관리 시스템</h1>
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-sm text-gray-600">
                 📅 {currentTime.toLocaleDateString('ko-KR')} {currentTime.toLocaleTimeString('ko-KR')}
               </span>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm font-medium">👤 관리자</span>
+              <div className="flex items-center space-x-4">
+                <span className="text-sm font-medium">👤 jenny</span>
+                <button 
+                  onClick={onLogout}
+                  className="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm font-medium"
+                >
+                  로그아웃
+                </button>
               </div>
             </div>
           </div>
